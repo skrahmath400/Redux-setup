@@ -12,8 +12,8 @@ const authorizationSlice = createSlice({
   reducers: {
     setRolePermissions: (state, action) => {
       const { mergedPermissions = {}, roles = [] } = action.payload || {};
-      state.permissions = mergedPermissions;
-      state.roles = roles;
+      state.permissions = mergedPermissions || {};
+      state.roles = roles || [];
     },
     setEmployeeId: (state, action) => {
       state.employeeId = action.payload ?? null;
